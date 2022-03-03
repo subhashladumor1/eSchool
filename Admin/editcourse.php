@@ -20,10 +20,10 @@ if (isset($_REQUEST['requpdate'])) {
         $cduration = $_REQUEST['course_duration'];
         $cprice = $_REQUEST['course_price'];
         $coriginalprice = $_REQUEST['course_original_price'];
-        $cimg = '../image/courseimg/'.$_FILES['course_img']['name'];
+        $cimg = '../image/courseimg/' . $_FILES['course_img']['name'];
 
         $sql = "UPDATE course SET course_id ='$cid', course_name='$cname', course_desc='$cdesc', course_author ='$cauthor', course_duration='$cduration', course_price = ' $cprice', course_original_price = '$coriginalprice', course_img= '$cimg' WHERE course_id ='$cid' ";
-        
+
         if ($conn->query($sql) == TRUE) {
             $msg = '<div class="alert alert-success col-sm-6 ml-5 mt-2">Updated Successfully </div>';
         } else {
@@ -48,11 +48,11 @@ if (isset($_REQUEST['requpdate'])) {
     ?>
 
     <form action="" method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-            <label for="course_id">Course Name</label>
+        <div class="form-group">
+            <label for="course_id">Course Id</label>
             <input type="text" class="form-control" id="course_id" name="course_id" value="<?php if (isset($row['course_id'])) {
-                                                                                                    echo $row['course_id'];
-                                                                                                } ?>" readonly>
+                                                                                                echo $row['course_id'];
+                                                                                            } ?>" readonly>
         </div>
         <div class="form-group">
             <label for="course_name">Course Name</label>

@@ -59,13 +59,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="lessons.php">
                                 <i class="fab fa-accessible-icon"></i>
                                 Lessons
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="students.php">
                                 <i class="fas fa-users"></i>
                                 Students
                             </a>
@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="adminChangePass.php">
                                 <i class="fas fa-key"></i>
                                 Change Password
                             </a>
