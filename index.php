@@ -44,7 +44,7 @@
                     echo '<a href="#" class="btn btn-primary btn btn-danger mt-3" data-toggle="modal" data-target="#stuRegModalCenter">Get
                     Started</a>';
                 }else{
-                    echo '<a href="#" class="btn btn-primary btn mt-3"> My Profile</a>';
+                    echo '<a href="Student/studentProfile.php" class="btn btn-primary btn mt-3"> My Profile</a>';
                 }
             ?>
             
