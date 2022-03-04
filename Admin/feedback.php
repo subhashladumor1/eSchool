@@ -4,11 +4,11 @@ if(!isset($_SESSION)){
 }
 
 
-include('./adminInclude/header.php');
+include('./admininclude/header.php');
 include('../dbConnection.php');
 
 if(isset($_SESSION['is_admin_login'])){
-    $adminEmail = $_SESSION['adminLogEmail'];
+    $adminEmail = $_SESSION['adminLogemail'];
 } else {
     echo "<script> location.href='../index.php'; </script>";
 }
@@ -42,7 +42,7 @@ if(isset($_SESSION['is_admin_login'])){
                     </button></form></td>
                     </tr>';
                 }
-          }
+          
 
           echo '</tbody>
            </table>';
