@@ -71,17 +71,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="sellReport.php">
                                 <i class="fas fa-table"></i>
                                 Sell Report
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="adminPaymentStatus.php">
                                 <i class="fas fa-table"></i>
                                 Payment Status
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="feedback.php">
                                 <i class="fab fa-accessible-icon"></i>

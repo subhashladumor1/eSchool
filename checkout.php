@@ -37,37 +37,41 @@ if (!isset($_SESSION['stuLogEmail'])) {
             <div class="row">
                 <div class="col-sm-6 offset-sm-3 jumbotron">
                     <h3 class="md-5">Welcome to E-Learning Payment Page</h3>
-                    <form method="post" action="./PaytmKit/pgRedirect.php">
-                        <div class="form-group row">
+                    <form action="./razorpay/pay.php" method="post">
+                        <!-- <div class="form-group row">
                             <label for="ORDER_ID" class="col-sm-4 col-form-label"> Order ID </label>
                             <div class="col-sm-8">
                                 <input id="ORDER_ID" class="form-control" tabindex="1" maxLength="20" size="20" name="ORDER_ID" autocomplete="off" value="<?php echo  "ORDS" . rand(10000, 99999999) ?>" readonly>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label for="CUST_ID" class="col-sm-4 col-form-label">Student Email </label>
                             <div class="col-sm-8">
-                            <input id="CUST_ID" class="form-control" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="<?php if(isset($stuEmail)){echo $stuEmail;}?>" readonly>
+                                <input id="CUST_ID" class="form-control" tabindex="2" maxlength="12" size="12" name="CUST_ID" autocomplete="off" value="<?php if (isset($stuEmail)) {
+                                                                                                                                                            echo $stuEmail;
+                                                                                                                                                        } ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="TXN_AMOUNT" class="col-sm-4 col-form-label">Amount </label>
                             <div class="col-sm-8">
-                            <input id="TXN_AMOUNT" title="TXN_AMOUNT"  class="form-control" tabindex="10" type="text" name="TXN_AMOUNT" value="<?php if(isset($_POST['id'])){echo $_POST['id'];}?>" readonly>
+                                <input id="TXN_AMOUNT" title="TXN_AMOUNT" class="form-control" tabindex="10" type="text" name="TXN_AMOUNT" value="<?php if (isset($_POST['id'])) {
+                                                                                                                                                        echo $_POST['id'];
+                                                                                                                                                    } ?>" readonly>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                            <label for="INDUSTRY_TYPE_ID" class="col-sm-4 col-form-label"> INDUSTRY TYPE ID </label>
+                            <div class="col-sm-8">
+                                <input type="hidden" class="form-control" id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <!-- <label for="INDUSTRY_TYPE_ID" class="col-sm-4 col-form-label"> INDUSTRY TYPE ID </label> -->
+                            <label for="CHANNEL_ID" class="col-sm-4 col-form-label"> CHANNEL ID </label>
                             <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="INDUSTRY_TYPE_ID" tabindex="4" maxlength="12" size="12" name="INDUSTRY_TYPE_ID" autocomplete="off" value="Retail" readonly>
+                                <input type="hidden" class="form-control" id="CHANNEL_ID" tabindex="2" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" readonly>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <!-- <label for="CHANNEL_ID" class="col-sm-4 col-form-label"> CHANNEL ID </label> -->
-                            <div class="col-sm-8">
-                            <input type="hidden" class="form-control" id="CHANNEL_ID" tabindex="2" maxlength="12" size="12" name="CHANNEL_ID" autocomplete="off" value="WEB" readonly>
-                            </div>
-                        </div>
+                        </div> -->
                         <div class="text-center">
                             <input value="CheckOut" class="btn btn-primary" type="submit" onclick="">
                             <a href="./courses.php" class="btn btn-secondary"> Cancel </a>

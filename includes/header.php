@@ -12,9 +12,9 @@
                 <li class="nav-item custom-item">
                     <a class="nav-link" href="courses.php">Course</a>
                 </li>
-                <li class="nav-item custom-item">
+                <!-- <li class="nav-item custom-item">
                     <a class="nav-link" href="./paymentstatus.php">Payment status</a>
-                </li>
+                </li> -->
                 <?php 
                     session_start();
                     if(isset($_SESSION['is_login'])){
