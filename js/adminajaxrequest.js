@@ -6,7 +6,7 @@ function checkAdminLogin(){
     var adminLogemail = $("#adminLogemail").val();
     var adminLogpass = $("#adminLogpass").val();
     $.ajax({
-        url: "Admin/admin.php",
+        url: "admin2/admin.php",
         method:"POST",
         dataType: "json",
         data:{
@@ -22,7 +22,7 @@ function checkAdminLogin(){
                 //Boostrap Loading Spin, jo Database maathi Login Detail Match thai jaay tyaare thoda time loading spin thase pachi aagal login thase.
                 $("#statusAdminLogMsg").html('<small class="alert alert-success">Success loading..</small>');
                 setTimeout(() =>{
-                    window.location.href = "Admin/adminDashboard.php";
+                    window.location.href = "admin2/index.php";
     
                 }, 1000);
             };
