@@ -22,7 +22,7 @@
 
     <!-- Start Navigation -->
     <?php
-    include('./dbConnection.php');
+    include_once('./dbConnection.php');
     include('./includes/header.php');
 
     ?>
