@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark  pl-5 fixed-top">
-        <a class="navbar-brand" href="index.php">BCA eLMS</a>
+        <a class="navbar-brand" href="index.php">eLMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -36,7 +36,7 @@
                 
                 
                 <li class="nav-item custom-item">
-                    <a class="nav-link" href="#">Feedback</a>
+                    <a class="nav-link" href="./about.php">About</a>
                 </li>
                 <li class="nav-item custom-item">
                     <a class="nav-link" href="#">Contact</a>

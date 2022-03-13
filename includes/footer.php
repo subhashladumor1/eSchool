@@ -137,6 +137,10 @@
     
     <!-- Include New JavaScript File AJAXREQUEST for Admin Login Request -->
     <script src="js/adminajaxrequest.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/sweet-scroll@4.0.0/sweet-scroll.min.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 
 </html>

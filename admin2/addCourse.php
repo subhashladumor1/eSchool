@@ -5,8 +5,8 @@ include('../dbConnection.php');
 
 if (isset($_REQUEST['courseSubmitBtn'])) {
     //checking for empty fields
-    if (($_REQUEST['course_name'] == "") || ($_REQUEST['course_desc']
-            == "") || ($_REQUEST['course_author'] == "") || ($_REQUEST['course_duration'] == "") || ($_REQUEST['course_price'] == "") ||
+    if (($_REQUEST['course_name'] == "") || ($_REQUEST['course_desc'] == ""
+        ) || ($_REQUEST['course_duration'] == "") || ($_REQUEST['course_price'] == "") ||
         ($_REQUEST['course_original_price'] == "")
     ) {
         $msg = '<div class="alert alert-warning col-sm-6 ml-5 mt-2">Fill ALL Fields</div>';
@@ -14,7 +14,7 @@ if (isset($_REQUEST['courseSubmitBtn'])) {
 
         $course_name = $_REQUEST['course_name'];
         $course_desc = $_REQUEST['course_desc'];
-        $course_author = $_REQUEST['course_author'];
+
         $course_duration = $_REQUEST['course_duration'];
         $course_price = $_REQUEST['course_price'];
         $course_original_price = $_REQUEST['course_original_price'];
@@ -23,9 +23,8 @@ if (isset($_REQUEST['courseSubmitBtn'])) {
         $img_folder = '../image/courseimg/' . $course_image;
         move_uploaded_file($course_image_temp, $img_folder);
 
-        $sql = "INSERT INTO course (course_name, course_desc, 
-                course_author, course_img, course_duration, course_price, course_original_price) VALUES ('$course_name',
-                 '$course_desc', '$course_author', '$img_folder', '$course_duration', '$course_price', '$course_original_price')";
+        $sql = "INSERT INTO course (course_name, course_desc, course_img, course_duration, course_price, course_original_price) VALUES ('$course_name',
+                 '$course_desc', '$img_folder', '$course_duration', '$course_price', '$course_original_price')";
 
 
         if ($conn->query($sql) == TRUE) {
@@ -115,10 +114,10 @@ if (isset($_REQUEST['courseSubmitBtn'])) {
                                 <label for="course_desc">Course Description</label>
                                 <textarea class="form-control" id="course_desc" name="course_desc" row=2></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="course_author">Author</label>
                                 <input type="text" class="form-control" id="course_author" name="course_author">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="course_duration">Course Duration</label>
                                 <input type="text" class="form-control" id="course_duration" name="course_duration">

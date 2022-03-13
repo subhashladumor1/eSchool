@@ -1,15 +1,15 @@
-<?php 
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    
-    
-    
-    if(isset($_SESSION['is_admin_login'])){
-        $adminEmail =  $_SESSION['adminLogemail'];
-    }else{
-        echo "<script>location.href='../index.php';</script>";
-    }
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+
+if (isset($_SESSION['is_admin_login'])) {
+    $adminEmail =  $_SESSION['adminLogemail'];
+} else {
+    echo "<script>location.href='../index.php';</script>";
+}
 
 ?>
 
@@ -41,6 +41,7 @@
     <!--google material icon-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper">
 
@@ -207,7 +208,7 @@
                 <li class="">
                     <a href="feedback.php"><i class="material-icons">feedback</i><span>Feeback</span></a>
                 </li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">rss_feed</i><span>Blogs</span></a>
                     <ul class="collapse list-unstyled menu" id="pageSubmenu7">
@@ -221,7 +222,7 @@
                             <a href="#">Page 3</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="">
                     <a href="adminChangePass.php"><i class="material-icons">key</i><span>Password</span></a>
                 </li>
@@ -233,5 +234,3 @@
 
 
         </nav>
-
-        
