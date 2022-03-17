@@ -23,14 +23,21 @@ if (isset($_REQUEST['courseSubmitBtn'])) {
         $img_folder = '../image/courseimg/' . $course_image;
         move_uploaded_file($course_image_temp, $img_folder);
 
-        $sql = "INSERT INTO course (course_name, course_desc, course_img, course_duration, course_price, course_original_price) VALUES ('$course_name',
+        $check =  "SELECT * FROM course WHERE course_name LIKE '%$course_name%'";
+        $result = $conn->query($check);
+        if ($result->num_rows > 0) {
+            $msg = '<div class="alert alert-danger col-sm-6 ml-5 mt-2">Sorry This Course All ready exists</div>';
+        } else {
+
+            $sql = "INSERT INTO course (course_name, course_desc, course_img, course_duration, course_price, course_original_price) VALUES ('$course_name',
                  '$course_desc', '$img_folder', '$course_duration', '$course_price', '$course_original_price')";
 
 
-        if ($conn->query($sql) == TRUE) {
-            $msg = '<div class="alert alert-success col-sm-6 ml-5 mt-2">Course Added Successfully</div>';
-        } else {
-            $msg = '<div class="alert alert-danger col-sm-6 ml-5 mt-2">unable to Add Course</div>';
+            if ($conn->query($sql) == TRUE) {
+                $msg = '<div class="alert alert-success col-sm-6 ml-5 mt-2">Course Added Successfully</div>';
+            } else {
+                $msg = '<div class="alert alert-danger col-sm-6 ml-5 mt-2">unable to Add Course</div>';
+            }
         }
     }
 }

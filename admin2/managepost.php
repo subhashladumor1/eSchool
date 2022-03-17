@@ -1,19 +1,8 @@
 <?php
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 include('./admininclude/header.php');
 include('../dbConnection.php');
-
-if (isset($_SESSION['is_admin_login'])) {
-    $adminEmail =  $_SESSION['adminLogemail'];
-} else {
-    echo "<script>location.href='../index.php';</script>";
-}
-
-
 ?>
+
 <div id="content">
     <div class="top-navbar">
         <nav class="navbar navbar-expand-lg">
@@ -73,77 +62,72 @@ if (isset($_SESSION['is_admin_login'])) {
         </nav>
     </div>
     <div class="main-content">
-    <div>
-        <a class="btn btn-danger box" href="./addCourse.php"><i class="material-icons"></i> Add Course</a>
-    </div>
-        <div class="row">
-            <div class="col-lg-7 col-md-10">
+        <div class="row ">
+            <div class="col-lg-9 col-md-14">
                 <div class="card" style="min-height: 485px">
                     <div class="card-header card-header-text">
-                        <h4 class="card-title">List of Courses</h4>
-                        <p class="category">All Type of Courses</p>
+                        <h4 class="card-title">Manage Posts</h4>
+                        <p class="category">Recent Post Activity...</p>
                     </div>
                     <div class="card-content table-responsive">
                         <?php
-                        $sql = "SELECT * FROM course";
+                        $sql="SELECT * FROM posts ORDER BY id DESC";
                         $result = $conn->query($sql);
+                        $no =1;
                         if ($result->num_rows > 0) {
-                            echo '<table class="table table-hover">
-                        <thead class="text-primary">
-                        <tr> <th scope="col">Courses ID</th>
-                        <th scope="col">Name</th>
-                        
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>';
+                            
+                            echo '<table class="table table-hover">  
+                                    <thead class="text-primary">
+                                    <tr>
+                                    <th>No.</th>
+                                    <th>Post Title</th>
+                                    <th>Post Category</th>
+                                    
+                                    <th>Post Date</th>
+                                   
+                                    <th>Action</th>
+                                    
+                                    </tr> 
+                                    </thead>
+                                    <tbody>';
                             while ($row = $result->fetch_assoc()) {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['course_id'] . '</th>';
-                                echo '<td>' . $row['course_name'] . '</td>';
                                 
-                                echo '<td>';
-                                echo    '
-               <form action="editcourse.php" method="POST" class="d-inline">
-               <input type="hidden" name="id" value=' . $row['course_id'] . '>
-               <button
-                      type="submit"
-                      class="btn bt-info mr-3"
-                      name="view"
-                      value="view"
-                    >
-                      <i class="material-icons">edit</i>
-                    </button>
-
-                </form>
-                    <form action="" method="POST" class="d-inline">
-                    <input type="hidden" name="id" value=' . $row['course_id'] . '>
-                    <button
-                        type="submit"
-                        class="btn btn-secondary"
-                        name="delete"
-                        value="Delete"
-                    >
-                       <i class="material-icons">delete_forever</i>
-                    </button>
-                    </form>
-                    </td>
-                </tr>';
+                                echo '<tr>';
+                                echo '<td>' . $no . '</td>';
+                               
+                                echo '<td>' . $row["title"] . '</td>';
+                                
+                                echo '<td>' . getCategory($conn, $row['category_id']) . '</td>';
+                                echo '<td>' .  date('F jS, Y', strtotime($row['created_at'])) . '</td>';
+                                echo '<td><form action="" method="POST" class="d-inline"><input type="hidden" name="id" value=' . $row["id"] . '><button type="submit" class="btn btn-secondary" name="delete" value="Delete"><i class="material-icons">delete_forever</i></button></form></td>';
+                                echo '</tr>';
+                                $no++;
                             }
-                        ?>
-                            </tbody>
-                            </table>
-                        <?php } else {
+                            echo '</tbody>
+                                    </table>';
+                        } else {
                             echo "0 Result";
                         }
 
                         if (isset($_REQUEST['delete'])) {
-                            $sql = "DELETE FROM course WHERE course_id = {$_REQUEST['id']}";
+                            $sql = "DELETE FROM posts WHERE id = {$_REQUEST['id']}";
                             if ($conn->query($sql) == TRUE) {
                                 echo '<meta http-equiv="refresh" content="0;URL=?deleted" />';
                             } else {
                                 echo "Unable to Delete Data";
                             }
+                        }
+
+                        function getCategory($conn,$id){
+                            $sql="SELECT * FROM category WHERE id=$id"; 
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0){
+                                $row = $result->fetch_assoc();
+                                return $row['name'];
+                            }else{
+                                return "Not Available";
+                            }
+                           
                         }
 
                         ?>
@@ -152,19 +136,9 @@ if (isset($_SESSION['is_admin_login'])) {
             </div>
         </div>
     </div>
-    <!-- div row cloase from header     -->
-    <div>
-        <br/>
-    </div>
-</div>
-<!--div  container-fluid close from header  -->
-</div>
 </div>
 
-
-
-
-<?php
+<?php 
 
 include('./adminInclude/footer.php')
 

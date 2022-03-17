@@ -640,9 +640,24 @@ footer .copyright .pro-links i:hover{
     padding: 15px 0 10px 0;
 }
 
-#blog-container .blogs .post p{
+#blog-container .blogs .post .blog-post-line{
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     color: #757373;
-    padding-bottom: 20px;
+    
+}
+
+#blog-container .blogs .post p{
+    
+    /* display: -webkit-box; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #757373;
+    
 }
 
 #blog-container .blogs .post a{
@@ -653,6 +668,7 @@ footer .copyright .pro-links i:hover{
     color: #fff;
     border-radius: 5px;
     font-weight: 600;
+    margin-top: 10px;
 }
 
 #blog-container .cate{

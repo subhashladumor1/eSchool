@@ -17,6 +17,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+
     <!-- Boootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -64,16 +66,47 @@
 
     <section id="course">
         <h1>Our popular Courses</h1>
-        <p>Replenish man have thing gathering lights yielding shall you</p>
+        <!-- <p>Replenish man have thing gathering lights yielding shall you</p> -->
+        <div class="row mt-4">
+            <div class="col-md-8 mx-auto bg-light rounded p-4">
+                <!-- <h5 class="text-center font-weight-bold">AutoComplete Search Using Bootstrap 4, PHP, PDO - MySQL & Ajax</h5> -->
+
+                <h5 class="text-center text-secondary">Write any course name in the search box</h5>
+                <hr class="my-1">
+                <form action="courses.php" method="post" class="p-3">
+                    <div class="input-group">
+                        <input type="text" name="search" id="search" class="form-control form-control-lg rounded-0 border-info" placeholder="Search..." autocomplete="off" required>
+                        <div class="input-group-append">
+                            <input type="submit" name="submit" class="btn btn-info btn-lg rounded-0">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5" style="position: relative;margin-top: -38px;margin-left: 240px; border-color: #000;">
+                <div class="list-group" id="show-list">
+                    <!-- Here autocomplete list will be display -->
+                    <!-- <a href="#" class="list-group-item list-group-item-action border-1">List 1</a>
+          <a href="#" class="list-group-item list-group-item-action border-1">List 1</a>
+          <a href="#" class="list-group-item list-group-item-action border-1">List 1</a>
+          <a href="#" class="list-group-item list-group-item-action border-1">List 1</a> -->
+                </div>
+            </div>
+        </div>
         <div class="card-deck mt-4">
             <div class="course-box">
-                <?php 
-                     $sql = "SELECT * FROM course";
-                     $result = $conn->query($sql);
-                     if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $course_id = $row['course_id'];
-                            echo '<div class="courses">
+                <?php
+                if (isset($_POST['search'])) {
+                    $search = $_POST['search'];
+                    $sql = "SELECT * FROM course WHERE course_name = '$search'";
+                } else {
+                    $sql = "SELECT * FROM course";
+                }
+
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $course_id = $row['course_id'];
+                        echo '<div class="courses">
                     <a href="coursedetails.php?course_id=' . $course_id . '" class="btn"  style="text-align: left;">
                         <img src="' . str_replace('..', '.', $row['course_img']) . '" alt="">
                         <div class="details">
@@ -102,8 +135,8 @@
                                 </div>
                         </a>
                     </div>';
-                        }
                     }
+                }
                 ?>
                 <!-- <div onclick="window.location.href='course-inner.html';" class="courses">
                     <img src="images/JS.jpg" alt="">
@@ -185,13 +218,39 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $('#menu-btn').click(function() {
             $('nav .navigation ul').addClass('active')
         });
         $('#menu-close').click(function() {
             $('nav .navigation ul').removeClass('active')
+        });
+
+        $(document).ready(function() {
+            // Send Search Text to the server
+            $("#search").keyup(function() {
+                let searchText = $(this).val();
+                if (searchText != "") {
+                    $.ajax({
+                        url: "search_action.php",
+                        method: "post",
+                        data: {
+                            query: searchText,
+                        },
+                        success: function(response) {
+                            $("#show-list").html(response);
+                        },
+                    });
+                } else {
+                    $("#show-list").html("");
+                }
+            });
+            // Set searched text in input field on click of search button
+            $(document).on("click", "a", function() {
+                $("#search").val($(this).text());
+                $("#show-list").html("");
+            });
         });
     </script>
 

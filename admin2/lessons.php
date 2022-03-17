@@ -66,10 +66,24 @@ include('../dbConnection.php');
 
     <div class="main-content">
         <form action=" " class="mt-3 form-inline d-print-none">
-            <div class="form-group mr-3">
+            <!-- <div class="form-group mr-3">
                 <label for="checkid">Enter course ID:</label>
                 <input type="text" class="form-control ml-3" id="checkid" name="checkid">
-            </div>
+            </div> -->
+            <label for="post_category">Select Course &nbsp;</label>
+                                <select name="checkid" class="form-control" id="checki" name="checkid">
+
+                                    <?php
+
+                                    $sql = "SELECT * FROM course";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<option value= ' . $row['course_id'] . '> ' . $row['course_name'] . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select> &nbsp;
             <button type="submit" class="btn btn-danger">Search</button> <?php
                                                                             if (isset($_SESSION['course_id'])) {
                                                                                 echo  '

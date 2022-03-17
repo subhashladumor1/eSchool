@@ -208,21 +208,22 @@ if (isset($_SESSION['is_admin_login'])) {
                 <li class="">
                     <a href="feedback.php"><i class="material-icons">feedback</i><span>Feeback</span></a>
                 </li>
-                <!-- <li class="dropdown">
+                <li class="dropdown">
                     <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">rss_feed</i><span>Blogs</span></a>
                     <ul class="collapse list-unstyled menu" id="pageSubmenu7">
                         <li>
-                            <a href="#">Add Post</a>
+                            <a href="addpost.php"><i class="material-icons">article</i><span>Add Post</span></a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
+                            <a href="managepost.php"><i class="material-icons">filter_alt</i><span>Manage Post</span></a>
                         </li>
                         <li>
-                            <a href="#">Page 3</a>
+                            <a href="blogcategory.php"><i class="material-icons">category</i><span> Blog Category</span></a>
                         </li>
+                        
                     </ul>
-                </li> -->
+                </li>
                 <li class="">
                     <a href="adminChangePass.php"><i class="material-icons">key</i><span>Password</span></a>
                 </li>

@@ -12,6 +12,9 @@
                 <li class="nav-item custom-item">
                     <a class="nav-link" href="courses.php">Course</a>
                 </li>
+                <li class="nav-item custom-item">
+                    <a class="nav-link" href="blog.php">Blog</a>
+                </li>
                 <!-- <li class="nav-item custom-item">
                     <a class="nav-link" href="./paymentstatus.php">Payment status</a>
                 </li> -->
@@ -39,7 +42,7 @@
                     <a class="nav-link" href="./about.php">About</a>
                 </li>
                 <li class="nav-item custom-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="./contact.php">Contact</a>
                 </li>
 
                 <!-- <li class="nav-item dropdown">

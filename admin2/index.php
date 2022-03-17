@@ -116,7 +116,7 @@ $totalfeedback = $result->num_rows;
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">local_offer</i> Product-wise sales
+                            <i class="material-icons">local_offer</i> Orders sales
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ $totalfeedback = $result->num_rows;
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">date_range</i> Sells Report
+                            <i class="material-icons">date_range</i> Student Details
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@ $totalfeedback = $result->num_rows;
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">update</i> Just Updated
+                            <i class="material-icons">update</i> Feedback Updated
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ $totalfeedback = $result->num_rows;
                     </div>
                     <div class="card-content table-responsive">
                         <?php
-                        $sql = "SELECT * FROM courseorder";
+                        $sql = "SELECT * FROM courseorder ORDER BY order_date DESC LIMIT 10";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             
@@ -276,18 +276,8 @@ $totalfeedback = $result->num_rows;
                         <nav class="d-flex">
                             <ul class="m-0 p-0">
                                 <li>
-                                    <a href="#">
+                                    <a href="../index.php">
                                         Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Company
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Portfolio
                                     </a>
                                 </li>
                                 <li>
@@ -295,13 +285,23 @@ $totalfeedback = $result->num_rows;
                                         Blog
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="../courses.php">
+                                        Courses
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../about.php">
+                                        About
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
 
                     </div>
                     <div class="col-md-6">
-                        <p class="copyright d-flex justify-content-end"> &copy 2021 Design by
-                            <a href="#">Vishweb Design</a> BootStrap Admin Dashboard
+                        <p class="copyright d-flex justify-content-end"> &copy 2022 Design by 
+                            <a href="#">&nbsp;Subhash, Ninad & Bharat</a> 
                         </p>
                     </div>
                 </div>
