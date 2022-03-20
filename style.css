@@ -155,6 +155,19 @@ nav .navigation ul li a:hover {
     transition: 0.3s ease;
 }
 
+.blue{
+    color: #fff;
+    background: rgb(21, 21, 100);
+    transition: 0.3s ease;
+}
+
+.blue:hover{
+    color: rgb(21, 21, 100);
+    background: #fff;
+    border: 2px solid;
+    border-color: rgb(21, 21, 100);
+}
+
 
 #Home a.blue:hover{
     color: rgb(21, 21, 100);

@@ -79,7 +79,7 @@
         <div class="header">
             <h1>
                 <span class="site-title">
-                    LEARN DAILY eLMS    
+                    LEARN DAILY eLMS
                 </span>
                 <span class="site-description">
                     Programming * Web Developer * Graphics Design
@@ -87,7 +87,7 @@
             </h1>
             <div class="header-links">
 
-            <?php
+                <?php
                 if (!isset($_SESSION['is_login'])) {
                     echo '<a href="#" class="link" data-toggle="modal" data-target="#stuRegModalCenter">Get
                         Started</a>';
