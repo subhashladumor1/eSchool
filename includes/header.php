@@ -19,9 +19,9 @@
                 </li> -->
             <?php
 
-            if (!isset($_COOKIE["PHPSESSID"])) {
-                session_start();
-            }
+
+            session_start();
+
             if (isset($_SESSION['is_login'])) {
                 echo '<li class="nav-item custom-item">
                         <a class="nav-link" href="Student/studentProfile.php">My Profile</a>

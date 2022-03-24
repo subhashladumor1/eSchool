@@ -86,7 +86,6 @@
                 </span>
             </h1>
             <div class="header-links">
-
                 <?php
                 if (!isset($_SESSION['is_login'])) {
                     echo '<a href="#" class="link" data-toggle="modal" data-target="#stuRegModalCenter">Get
