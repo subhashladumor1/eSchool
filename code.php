@@ -866,9 +866,12 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <?php
-include_once('./dbConnection.php');
-include('./includes/header.php');
+session_start();
+include('./includes/IDE_header.php');
+// include_once('./dbConnection.php');
+
 ?>
+
 
 <body style="position:relative;min-height:100%;font-family: 'Source Sans Pro', sans-serif;">
 
