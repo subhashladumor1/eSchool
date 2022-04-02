@@ -47,9 +47,9 @@
             <li class="nav-item custom-item">
                 <a class="nav-link" href="./about.php">About</a>
             </li>
-            <li class="nav-item custom-item">
+            <!-- <li class="nav-item custom-item">
                 <a class="nav-link" href="./contact.php">Contact</a>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

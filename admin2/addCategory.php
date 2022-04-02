@@ -74,11 +74,11 @@ if (isset($_REQUEST['SubmitBtn'])) {
 								<span class="material-icons">person</span>
 								</a>
                             </li> -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span class="material-icons">settings</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

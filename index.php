@@ -180,7 +180,7 @@
     </section>
 
     <div class="text-center m-2">
-        <a class="btn btn-primary text-white font-weight-bolder" href="#"> View All Courses</a>
+        <a class="btn btn-primary text-white font-weight-bolder" href="courses.php"> View All Courses</a>
     </div>
 
     <!-- registration -->

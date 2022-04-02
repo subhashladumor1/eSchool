@@ -68,11 +68,7 @@ $totalfeedback = $result->num_rows;
 								<span class="material-icons">person</span>
 								</a>
                             </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="material-icons">settings</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -111,12 +107,12 @@ $totalfeedback = $result->num_rows;
                         </div>
                     </div>
                     <div class="card-content">
-                        <p class="category"><strong>Orders</strong></p>
+                        <p class="category"><strong>Enroll</strong></p>
                         <h3 class="card-title"><?php echo $totalsold; ?></h3>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            <i class="material-icons">local_offer</i> Orders sales
+                            <i class="material-icons">local_offer</i> Enroll Details
                         </div>
                     </div>
                 </div>

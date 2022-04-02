@@ -81,11 +81,11 @@ if (isset($_REQUEST['lessonSubmitBtn'])) {
 								<span class="material-icons">person</span>
 								</a>
                             </li> -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span class="material-icons">settings</span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -122,12 +122,12 @@ if (isset($_REQUEST['lessonSubmitBtn'])) {
                                 <textarea type="text" class="form-control" id="lesson_desc" name="lesson_desc" row=2></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="lesson_link">Lesson Video Link</label>
+                                <label for="lesson_link">Lesson Video File</label>
                                 <input type="file" class="form-control-file" id="lesson_link" name="lesson_link">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-danger" id="lessonSubmitBtn" name="lessonSubmitBtn">Submit</button>
-                                <a href="lesson.php" class="btn btn-secondary">Close</a>
+                                <a href="lessons.php" class="btn btn-secondary">Close</a>
                             </div>
                             <?php if (isset($msg)) {
                                 echo $msg;

@@ -30,8 +30,22 @@
     include('./dbConnection.php');
     include('./includes/header.php');
     // session_start();
-    if (!isset($_SESSION['stuLogEmail'])) {
-        echo "<script>location.href = 'loginorsignup.php'</script>";
+    if (!isset($_SESSION['stuLogEmail'])) { ?>
+        <div class="popup-container">
+                
+        <div class="popup">
+            <img src="image/cross.png">
+            <h2>Account Required</h2>
+            <p>Sorry you can not buy this course. beacuse you have not Register or Login.</p>
+            <button type="button" onclick="gotocouse()">GO TO HOME</button>
+        </div>
+    </div>
+    <script>
+        function gotocouse(){
+            location.href = 'index.php';
+        }
+    </script>
+    <?php
     } else {
         header("Pragma: no-cache");
         header("Cache-Control: no-cache");
@@ -46,7 +60,7 @@
                 
                 <div class="popup">
                     <img src="image/cross.png">
-                    <h2>Not Buy This Course</h2>
+                    <h2>All ready buy this Course</h2>
                     <p>Sorry you can not buy this course. beacuse you have all ready buy this course. Checkout another course.</p>
                     <button type="button" onclick="gotocouse()">GO TO COURSES</button>
                 </div>

@@ -65,7 +65,7 @@ if (isset($_SESSION['is_login'])) {
                             <div class="list active"><video src="' . $row['lesson_link'] . '" class="list-video"></video>  <h3 class="list-title">' . $row['lesson_name'] . '</h3></div>';
                         $no++;
                     } else {
-                        echo '<div class="list"><video src="' . $row['lesson_link'] . '" class="list-video"></video>  <h3 class="list-title">' . $row['lesson_name'] . '</h3></div></div>';
+                        echo '<div class="list"><video src="' . $row['lesson_link'] . '" class="list-video"></video>  <h3 class="list-title">' . $row['lesson_name'] . '</h3></div>';
                     }
                 }
             }

@@ -49,14 +49,14 @@ if (isset($_SESSION['is_admin_login'])) {
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><img src="img/logo.jpg" class="img-fluid" /><span>eLMS BCA</span></h3>
+                <h3><img src="img/logo.jpg" class="img-fluid" /><span>eLMS</span></h3>
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
                 </li>
 
-                <div class="small-screen navbar-display">
+                <!-- <div class="small-screen navbar-display">
                     <li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
                         <a href="#homeSubmenu0" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <i class="material-icons">notifications</i><span> 4 notification</span></a>
@@ -87,7 +87,7 @@ if (isset($_SESSION['is_admin_login'])) {
                     <li class="d-lg-none d-md-block d-xl-none d-sm-block">
                         <a href="#"><i class="material-icons">settings</i><span>setting</span></a>
                     </li>
-                </div>
+                </div> -->
 
 
                 <!-- <li class="dropdown">
