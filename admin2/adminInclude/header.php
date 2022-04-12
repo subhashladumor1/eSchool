@@ -29,11 +29,21 @@ if (isset($_SESSION['is_admin_login'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!----css3---->
     <link rel="stylesheet" href="css/custom.css">
+  
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/r-2.2.3/datatables.min.css" />
+
+
+   
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="js/pdf.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
 
 
 
@@ -221,7 +231,7 @@ if (isset($_SESSION['is_admin_login'])) {
                         <li>
                             <a href="blogcategory.php"><i class="material-icons">category</i><span> Blog Category</span></a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <li class="">

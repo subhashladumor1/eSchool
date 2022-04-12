@@ -68,7 +68,7 @@ $totalfeedback = $result->num_rows;
 								<span class="material-icons">person</span>
 								</a>
                             </li> -->
-                        
+
                     </ul>
                 </div>
             </div>
@@ -160,33 +160,38 @@ $totalfeedback = $result->num_rows;
             <div class="col-lg-10 col-md-14">
                 <div class="card" style="min-height: 485px">
                     <div class="card-header card-header-text">
-                        <h4 class="card-title">Order Details</h4>
-                        <p class="category">Recent Order Activity...</p>
+                        <h4 class="card-title">Enroll Details</h4>
+                        <p class="category">Recent Enroll Activity...</p>
                     </div>
+
+
                     <div class="card-content table-responsive">
                         <?php
-                        $sql = "SELECT * FROM courseorder ORDER BY order_date DESC LIMIT 10";
+
+
+
+
+                        // $sql = "SELECT * FROM courseorder ORDER BY order_date DESC LIMIT 10";
+                        $sql = "SELECT co.co_id, co.order_id, co.stu_email, co.course_id, co.razorpay_payment_id, co.amount, co.order_date, c.course_id, c.course_name, c.course_duration, c.course_desc, c.course_img, c.course_original_price, c.course_price FROM courseorder AS co JOIN course AS c ON c.course_id = co.course_id";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
-                            
                             echo '<table class="table table-hover">  
                                     <thead class="text-primary">
                                     <tr>
-                                    <th>Order ID</th>
-                                    <th>Course ID</th>
+                                    <th>Enroll ID</th>
+                                    <th>Course Name</th>
                                     <th>Razorpay Payment Id</th>
                                     <th>Student Email</th>
-                                    <th>Order Date</th>
+                                    <th>Enroll Date</th>
                                     <th>Amount</th>
-                                    <th>Action</th>
-                                    
+                                    <th>Action</th>                                    
                                     </tr> 
                                     </thead>
                                     <tbody>';
                             while ($row = $result->fetch_assoc()) {
                                 echo '<tr>';
                                 echo '<td>' . $row["order_id"] . '</td>';
-                                echo '<td>' . $row["course_id"] . '</td>';
+                                echo '<td>' . $row["course_name"] . '</td>';
                                 echo '<td>' . $row["razorpay_payment_id"] . '</td>';
                                 echo '<td>' . $row["stu_email"] . '</td>';
                                 echo '<td>' . $row["order_date"] . '</td>';
@@ -296,8 +301,8 @@ $totalfeedback = $result->num_rows;
 
                     </div>
                     <div class="col-md-6">
-                        <p class="copyright d-flex justify-content-end"> &copy 2022 Design by 
-                            <a href="#">&nbsp;Subhash, Ninad & Bharat</a> 
+                        <p class="copyright d-flex justify-content-end"> &copy 2022 Design by
+                            <a href="#">&nbsp;Subhash, Ninad & Bharat</a>
                         </p>
                     </div>
                 </div>
@@ -318,7 +323,7 @@ $totalfeedback = $result->num_rows;
 
 
 
-<?php 
+<?php
 
 include('./adminInclude/footer.php')
 
