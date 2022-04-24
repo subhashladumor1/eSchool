@@ -153,7 +153,7 @@ include('./admininclude/header.php');
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     echo '<div class="row">';
-                    echo '<div class="col-lg-10 col-md-14">';
+                    echo '<div class="col-lg-10 col-md-14" >';
                     echo '<div class="card" style="min-height: 485px">';
                     echo '<div class="card-header card-header-text">';
                     echo '<h4 class="card-title">Enroll Details</h4>';
@@ -224,7 +224,7 @@ include('./admininclude/header.php');
                     $row =  $result->fetch_assoc();
                     if ($result->num_rows > 0) {
                         echo '<div class="row" >';
-                        echo '<div class="col-lg-10 col-md-14">';
+                        echo '<div class="col-lg-10 col-md-14" >';
                         echo '<div class="card" style="min-height: 485px">';
                         echo '<div class="card-header card-header-text">';
                         echo '<h4 class="card-title">Enroll Details</h4>';
@@ -248,7 +248,7 @@ include('./admininclude/header.php');
                     $row =  $result->fetch_assoc();
                     if ($result->num_rows > 0) {
                         echo '<div class="row" id="report">';
-                        echo '<div class="col-lg-10 col-md-14">';
+                        echo '<div class="col-lg-10 col-md-14" >';
                         echo '<div class="card" style="min-height: 485px">';
                         echo '<div class="card-header card-header-text">';
                         echo '<h4 class="card-title">Enroll Details</h4>';
@@ -264,37 +264,35 @@ include('./admininclude/header.php');
                         }
 
                         // $rows = $model->fetch_std_filter($std);
-                    } 
-                }
-                elseif (empty($_REQUEST['course_select']) && isset($_REQUEST['user_select'])) {
-                        $user_select = $_REQUEST['user_select'];
-                        $sql = "SELECT * FROM courseorder";
-                        $result = $conn->query($sql);
-                        $row =  $result->fetch_assoc();
-                        if ($result->num_rows > 0) {
-                            echo '<div class="row" id="report">';
-                            echo '<div class="col-lg-10 col-md-14">';
-                            echo '<div class="card" style="min-height: 485px">';
-                            echo '<div class="card-header card-header-text">';
-                            echo '<h4 class="card-title">Enroll Details</h4>';
-                            echo '<p class="category">Recent Enroll Activity...</p>';
-                            echo '</div>';
-                            echo '<div class="card-content table-responsive">';
-                            if (isset($_REQUEST['filtersubmit'])) {
-
-                                $sql = "SELECT co.co_id, co.order_id, co.stu_email, co.course_id, co.razorpay_payment_id, co.amount, co.order_date, c.course_id, c.course_name, c.course_duration, c.course_desc, c.course_img, c.course_original_price, c.course_price FROM courseorder AS co JOIN course AS c ON  c.course_id = co.course_id AND co.stu_email = '$user_select'";
-
-                                // $sql = "SELECT * FROM courseorder WHERE co.stu_email = '$user_select'";
-                                $result = $conn->query($sql);
-                            }
-
-                        }
-                        // $rows = $model->fetch_res_filter($res);
                     }
-
+                } elseif (empty($_REQUEST['course_select']) && isset($_REQUEST['user_select'])) {
+                    $user_select = $_REQUEST['user_select'];
+                    $sql = "SELECT * FROM courseorder";
+                    $result = $conn->query($sql);
+                    $row =  $result->fetch_assoc();
                     if ($result->num_rows > 0) {
+                        echo '<div class="row" id="report">';
+                        echo '<div class="col-lg-10 col-md-14" >';
+                        echo '<div class="card" style="min-height: 485px">';
+                        echo '<div class="card-header card-header-text">';
+                        echo '<h4 class="card-title">Enroll Details</h4>';
+                        echo '<p class="category">Recent Enroll Activity...</p>';
+                        echo '</div>';
+                        echo '<div class="card-content table-responsive">';
+                        if (isset($_REQUEST['filtersubmit'])) {
 
-                        echo '<table class="table table-hover" id="record_table">  
+                            $sql = "SELECT co.co_id, co.order_id, co.stu_email, co.course_id, co.razorpay_payment_id, co.amount, co.order_date, c.course_id, c.course_name, c.course_duration, c.course_desc, c.course_img, c.course_original_price, c.course_price FROM courseorder AS co JOIN course AS c ON  c.course_id = co.course_id AND co.stu_email = '$user_select'";
+
+                            // $sql = "SELECT * FROM courseorder WHERE co.stu_email = '$user_select'";
+                            $result = $conn->query($sql);
+                        }
+                    }
+                    // $rows = $model->fetch_res_filter($res);
+                }
+
+                if ($result->num_rows > 0) {
+
+                    echo '<table class="table table-hover" id="record_table">  
                             <thead class="text-primary">
                             <tr>
                             <th>Enroll ID</th>
@@ -306,9 +304,9 @@ include('./admininclude/header.php');
                             </tr> 
                             </thead>
                             <tbody>';
-                        while ($row = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
 
-                            echo '<tr>
+                        echo '<tr>
                                             <th scope="row">' . $row["order_id"] . '</th>
                                             <td>' .  $row["course_name"] . '</td>
                                             <td>' . $row["razorpay_payment_id"] . '</td>
@@ -316,23 +314,23 @@ include('./admininclude/header.php');
                                             <td>' . $row["order_date"] . '</td>
                                             <td>' . $row["amount"] . '</td>
                                             </tr>';
-                        }
-                        echo '<tr> 
+                    }
+                    echo '<tr> 
                                                 
                                                
                                             </tr>
                                         </tbody>
                                         </table>
                                         <button class="btn btn-danger" type="submit" value="Report PDF Print" id="pdf-btn">Report PDF Print</button>';
-                    } else {
-                        echo "<div class='alert alert-warning col-sm-6 ml-5 mt-2' role='alert'> No Record Found! </div>";
-                    }
-                    echo '</div>
+                } else {
+                    echo "<div class='alert alert-warning col-sm-6 ml-5 mt-2' role='alert'> No Record Found! </div>";
+                }
+                echo '</div>
                 </div>
             </div>
         </div>';
-                }
-            
+            }
+
 
 
 
@@ -365,23 +363,26 @@ include('./admininclude/footer.php');
         var element = document.getElementById('record_table');
 
         var opt = {
-            margin: 1,
-            filename: 'myreport.pdf',
+            margin: 10,
+            filename: 'myfile.pdf',
             image: {
                 type: 'jpeg',
                 quality: 0.98
             },
             html2canvas: {
-                scale: 0
+                scale: 2,
+                logging: true,
+                dpi: 192,
+                letterRendering: true
             },
             jsPDF: {
-                unit: 'in',
-                format: '',
-                orientation: 'landscape'
+                unit: 'mm',
+                format: 'letter',
+                orientation: 'portrait'
             }
 
         };
 
-        html2pdf(element);
+        html2pdf(element, opt);
     };
 </script>
